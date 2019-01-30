@@ -29,7 +29,7 @@ class Project < ApplicationRecord
   end
 
   def self.report
-    Benchmark.bmbm do |x|
+    Benchmark.bm(7) do |x|
       x.report("count_active_project") { Project.count_active_projects }
       x.report("count_active_projects_ar") { Project.count_active_projects_ar }
       x.report("count_active_projects_sql") { Project.count_active_projects_sql }
